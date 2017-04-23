@@ -21,8 +21,5 @@ class Program {
 		int c = x / y; // 7 = 2 * 3 + 1
 		System.out.println(c);
 		int d = x % y; // d - 1,
-		
-		
-		
 	}
 }
