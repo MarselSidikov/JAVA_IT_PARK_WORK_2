@@ -4,12 +4,8 @@ public class Main {
 
     public static void main(String[] args) {
         // создали объект типа Student
-	    Student marsel = new Student();
-	    marsel.name = "Marsel";
-	    marsel.groupNumber = 9515;
-        marsel.russianLanguageMark = 5;
-        marsel.mathMark = 4;
-        marsel.physicsMark = 5;
+	    Student marsel =
+				new Student("Marsel", 9515, 5, 4, 5);
 
 	    Student rinata = new Student();
 	    rinata.name = "Rinata";
@@ -28,5 +24,8 @@ public class Main {
         // это объектные переменные не равно объект
         // объектная_перемення.член_класса - обращение к значению объекта
         // в поле, указанном после точки
+
+		Student marselCopy = new Student(marsel);
+		int i = 0;
     }
 }
