@@ -1,13 +1,9 @@
-package ru.itpark;
-
-import java.util.Scanner;
+﻿   package ru.itpark;
 
 /**
  * Created by Student21 on 12.05.2017.
  */
 public class Main2 {
-    // функция
-    // student - формальный параметр
     static double marksAverage(Student student) {
         double average = (student.russianLanguageMark +
                 student.mathMark + student.physicsMark) / 3.0;
@@ -26,10 +22,8 @@ public class Main2 {
         rinata.mathMark = 5;
         rinata.physicsMark = 5;
 
-        // double marksAverageOfMarsel = marksAverage(marsel);
-        // double marksAverageOfRinata = marksAverage(rinata);
-        double marksAverageOfRinata = rinata.marksAverage();
-        double marksAverageOfMarsel = marsel.marksAverage();
+        double marksAverageOfMarsel = marksAverage(marsel);
+        double marksAverageOfRinata = marksAverage(rinata);
         System.out.println(marksAverageOfMarsel);
         System.out.println(marksAverageOfRinata);
 

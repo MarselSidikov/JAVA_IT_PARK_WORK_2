@@ -16,7 +16,6 @@ class Program {
 		System.out.println("Result:");
 		for (int i = 0; i < 8; i++){
 			System.out.print(a[i]);
-		}
-		
+		}	
 	}
 }
