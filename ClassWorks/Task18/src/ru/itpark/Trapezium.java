@@ -5,7 +5,8 @@ public class Trapezium extends Figure {
     int b;
     int h;
 
-    public Trapezium(int a, int b, int h) {
+    public Trapezium(String name, int a, int b, int h) {
+        super(name);
         this.a = a;
         this.b = b;
         this.h = h;
