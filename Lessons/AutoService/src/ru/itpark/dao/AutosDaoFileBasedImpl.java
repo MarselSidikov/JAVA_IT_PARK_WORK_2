@@ -6,6 +6,7 @@ import ru.itpark.models.Auto;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class AutosDaoFileBasedImpl implements AutosDao {
 
@@ -35,5 +36,15 @@ public class AutosDaoFileBasedImpl implements AutosDao {
             System.err.println("Ошибки с вводом-выводом");
         }
         return 0;
+    }
+
+    @Override
+    public ArrayList<Auto> findAll() {
+        ArrayList<Auto> result = new ArrayList<>();
+        // считываете построчно данные об автомобиле из файла
+        // конвертируете в объект типа Auto
+        // кладете данный объект в список
+        // возвращаете список как результат
+        return result;
     }
 }
