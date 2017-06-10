@@ -21,7 +21,7 @@ public class ArrayList {
         }
     }
 
-    public Object get(int index) {
+    public   get(int index) {
         if (index < count) {
             return this.elements[index];
         } else {

@@ -34,6 +34,7 @@ public class IdGeneratorImpl implements IdGenerator {
                             new FileWriter(autoIdFileName));
             autoWriter.write(newId + "");
             autoWriter.close();
+			lastAutoId = newId;
         } catch (IOException e) {
             System.err.println("Проблемы с вводом выводом");
         }
