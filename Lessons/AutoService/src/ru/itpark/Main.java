@@ -7,16 +7,23 @@ import ru.itpark.dao.UsersDaoFileBasedImpl;
 import ru.itpark.generators.IdGenerator;
 import ru.itpark.generators.IdGeneratorImpl;
 import ru.itpark.models.Auto;
+import ru.itpark.models.User;
 import ru.itpark.services.AutoService;
+import ru.itpark.utils.FileDaoTemplate;
+
+import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
-        IdGenerator idGenerator = new IdGeneratorImpl("auto_ids.txt");
-        UsersDao usersDao = new UsersDaoFileBasedImpl("users.txt");
-        AutosDao autosDao = new AutosDaoFileBasedImpl("autos.txt", idGenerator);
-        AutoService autoService = new AutoService(usersDao, autosDao);
-        Auto auto = new Auto("УАЗ", "Бежевый", 11);
-        autoService.addAutoToUser(auto);
+        FileDaoTemplate template = new FileDaoTemplate();
+        UsersDao usersDao = new UsersDaoFileBasedImpl("users.txt", template);
+        AutosDao autosDao = new AutosDaoFileBasedImpl("autos.txt", null, template);
+        User user = usersDao.find(4);
+        System.out.println(user.getName());
+        Auto auto = autosDao.find(8);
+        System.out.println(auto.getColor());
+        List<User> users = usersDao.findByAge(23);
+        System.out.println(users);
     }
 }

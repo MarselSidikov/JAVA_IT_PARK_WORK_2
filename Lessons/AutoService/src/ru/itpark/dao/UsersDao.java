@@ -4,11 +4,10 @@ import ru.itpark.models.Auto;
 import ru.itpark.models.User;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public interface UsersDao {
-    // возвращает true, если
-    // пользователь с указанным id существует
+public interface UsersDao extends BaseDao<User> {
     boolean isExistById(int userId);
-
-    ArrayList<User> findAll();
+    List<User> findByName(String name);
+    List<User> findByAge(int age);
 }

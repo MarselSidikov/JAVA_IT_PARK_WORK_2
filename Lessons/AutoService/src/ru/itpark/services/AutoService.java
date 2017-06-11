@@ -15,8 +15,11 @@ public class AutoService {
     }
 
     public void addAutoToUser(Auto auto) {
+        // взяли хозяина машины
         int userId = auto.getOwnerId();
+        // проверили на существование
         if (usersDao.isExistById(userId)) {
+            // сохранили машину
             autosDao.save(auto);
         } else {
             System.err.println("Пользователь не найден");

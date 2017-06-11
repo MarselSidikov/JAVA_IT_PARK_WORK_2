@@ -6,6 +6,13 @@ public class Auto {
     private String color;
     private int ownerId;
 
+    public Auto(int id, String model, String color, int ownerId) {
+        this.id = id;
+        this.model = model;
+        this.color = color;
+        this.ownerId = ownerId;
+    }
+
     public Auto(String model, String color, int ownerId) {
         this.model = model;
         this.color = color;
