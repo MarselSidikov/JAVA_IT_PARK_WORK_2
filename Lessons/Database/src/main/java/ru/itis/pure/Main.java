@@ -1,3 +1,5 @@
+package ru.itis.pure;
+
 import java.sql.*;
 import java.util.Scanner;
 
@@ -49,6 +51,5 @@ public class Main {
             System.err.println("Ошибка подключения");
             e.printStackTrace();
         }
-
     }
 }
