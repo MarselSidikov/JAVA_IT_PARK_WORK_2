@@ -18,8 +18,17 @@ public class Main {
         UsersDao usersDao = new UsersDaoJdbcTemplateImpl(dataSource);
         List<User> users = usersDao.findAll();
 
+        User alina = new User("Алина", 18, 160);
+        System.out.println(usersDao.save(alina));
         for (User user : users) {
             System.out.println(user);
         }
+
+        User updatedMarsel = new User(1, "Марсель",34, 189);
+        usersDao.update(updatedMarsel);
+
+        User regina = usersDao.find(13);
+
+        System.out.println(regina);
     }
 }

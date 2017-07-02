@@ -1,9 +1,9 @@
-package ru.itis.pure;
+package ru.itis.old;
 
 import java.sql.*;
 import java.util.Scanner;
 
-public class Main {
+public class MainPureJdbc {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int age = scanner.nextInt();

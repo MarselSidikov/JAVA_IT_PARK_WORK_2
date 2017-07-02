@@ -2,12 +2,15 @@ package ru.itis.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import ru.itis.models.User;
 
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UsersDaoJdbcTemplateImpl implements UsersDao {
 
@@ -25,6 +28,10 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
     //language=SQL
     private final static String SQL_INSERT_USER =
             "INSERT INTO human(name, age, height) VALUES(?, ?, ?)";
+
+    //language=SQL
+    private final static String SQL_SELECT_BY_ID =
+            "SELECT * FROM human WHERE id = ?";
 
     private JdbcTemplate template;
 
@@ -45,19 +52,26 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
     }
 
     public int save(User model) {
-        return 0;
+        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(template);
+        jdbcInsert.withTableName("human").usingGeneratedKeyColumns("id");
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("name", model.getName());
+        params.put("age", model.getAge());
+        params.put("height", model.getHeight());
+        int id = jdbcInsert.executeAndReturnKey(params).intValue();
+        model.setId(id);
+        return id;
     }
 
     public User find(int id) {
-        return null;
+        return template.queryForObject(SQL_SELECT_BY_ID, userRowMapper, id);
     }
 
     public void update(User model) {
-
+        template.update(SQL_UPDATE_USER, model.getName(), model.getHeight(), model.getAge(), model.getId());
     }
 
     public void delete(int id) {
-
     }
 
     private RowMapper<User> userRowMapper = new RowMapper<User>() {

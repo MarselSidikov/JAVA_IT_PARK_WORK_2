@@ -1,7 +1,6 @@
-package ru.itis.daos;
+package ru.itis.old;
 
 import ru.itis.dao.UsersDao;
-import ru.itis.dao.UsersDaoJdbcImpl;
 import ru.itis.models.User;
 
 import java.sql.Connection;
