@@ -30,5 +30,8 @@ public class Main {
         User regina = usersDao.find(13);
 
         System.out.println(regina);
+
+        System.out.println(usersDao.isExistById(14));
+        System.out.println(usersDao.isExistById(50));
     }
 }

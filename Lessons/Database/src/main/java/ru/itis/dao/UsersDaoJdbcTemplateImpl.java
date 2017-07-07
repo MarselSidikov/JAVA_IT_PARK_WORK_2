@@ -33,6 +33,10 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
     private final static String SQL_SELECT_BY_ID =
             "SELECT * FROM human WHERE id = ?";
 
+    //language=SQL
+    private final static String SQL_SELECT_COUNT_BY_ID =
+            "SELECT COUNT(*) FROM human WHERE id = ?";
+
     private JdbcTemplate template;
 
     public UsersDaoJdbcTemplateImpl(DataSource dataSource) {
@@ -40,7 +44,8 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
     }
 
     public boolean isExistById(int userId) {
-        return false;
+        int count = template.queryForObject(SQL_SELECT_COUNT_BY_ID, Integer.class, userId);
+        return count == 1;
     }
 
     public List<User> findByName(String name) {
