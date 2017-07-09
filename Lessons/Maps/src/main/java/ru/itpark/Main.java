@@ -1,5 +1,7 @@
 package ru.itpark;
 
+import java.util.HashMap;
+
 public class Main {
     public static void main(String[] args) {
         Map<Character, String> map = new MapImpl<>();
@@ -19,7 +21,11 @@ public class Main {
         map.put('M', "Mazda");
         map.put('N', "Nissan");
         map.put('O', "Opel");
-
-        String camry = map.get('C');
+        map.show();
+        map.put('O', "Octavia");
+        System.out.println("--------------");
+        map.show();
+        String camry = map.get('O');
+        System.out.println(camry);
     }
 }
