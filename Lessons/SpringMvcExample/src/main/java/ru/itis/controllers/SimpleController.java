@@ -18,7 +18,7 @@ import java.util.List;
 public class SimpleController {
 
     @Autowired
-    @Qualifier("usersDaoHibernate")
+    @Qualifier("usersDaoJdbc")
     private UsersDao usersDao;
 
     @GetMapping(value = "/hello")

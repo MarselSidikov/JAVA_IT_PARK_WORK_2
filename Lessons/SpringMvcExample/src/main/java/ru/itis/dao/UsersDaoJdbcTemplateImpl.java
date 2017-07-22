@@ -1,6 +1,7 @@
 package ru.itis.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -14,7 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component
+@Component("usersDaoJdbc")
 public class UsersDaoJdbcTemplateImpl implements UsersDao {
 
     //language=SQL
@@ -43,7 +44,7 @@ public class UsersDaoJdbcTemplateImpl implements UsersDao {
     private JdbcTemplate template;
 
     @Autowired
-    public UsersDaoJdbcTemplateImpl(DataSource dataSource) {
+    public UsersDaoJdbcTemplateImpl(@Qualifier("itpark_db") DataSource dataSource) {
         this.template = new JdbcTemplate(dataSource);
     }
 

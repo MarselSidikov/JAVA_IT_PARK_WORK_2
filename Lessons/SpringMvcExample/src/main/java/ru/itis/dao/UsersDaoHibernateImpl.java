@@ -27,7 +27,11 @@ public class UsersDaoHibernateImpl implements UsersDao {
 
     @Override
     public List<User> findByAge(int age) {
-        return null;
+        Session session = sessionFactory.openSession();
+        List<User> users = session.create Query("from User user where user.age = ?")
+                .setParameter(1, age).list();
+        session.close();
+        return users;
     }
 
     @Override
@@ -42,12 +46,19 @@ public class UsersDaoHibernateImpl implements UsersDao {
 
     @Override
     public User find(int id) {
-        return null;
+        Session session = sessionFactory.openSession();
+        User user = session.find(User.class, id);
+        session.close();
+        return user;
     }
 
     @Override
     public void update(User model) {
-
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.update(model);
+        transaction.commit();
+        session.close();
     }
 
     @Override
