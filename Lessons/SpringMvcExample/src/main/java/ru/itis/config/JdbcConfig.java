@@ -9,8 +9,8 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 import javax.sql.DataSource;
 
-@Configuration
-@PropertySource(value = "ru.itis\\db.properties")
+//@Configuration
+//@PropertySource(value = "ru.itis\\db.properties")
 public class JdbcConfig {
 
     @Autowired

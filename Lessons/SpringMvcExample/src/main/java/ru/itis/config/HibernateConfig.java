@@ -11,7 +11,7 @@ import ru.itis.models.User;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Configuration
+//@Configuration
 public class HibernateConfig {
 
     @Autowired

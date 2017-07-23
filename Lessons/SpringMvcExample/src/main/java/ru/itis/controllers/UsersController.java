@@ -9,21 +9,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.itis.dao.UsersDao;
 import ru.itis.models.User;
+import ru.itis.repository.UsersRepository;
 
 import java.util.List;
 
 // аннотация Controller означает, что мы можем
 // в данном классе обрабатывать http-запросы
 @Controller
-public class SimpleController {
+public class UsersController {
+
+//    @Autowired
+//    @Qualifier("usersDaoJdbc")
+//    private UsersDao usersDao;
 
     @Autowired
-    @Qualifier("usersDaoJdbc")
-    private UsersDao usersDao;
+    private UsersRepository usersRepository;
 
     @GetMapping(value = "/hello")
     public String getHomePage(@ModelAttribute("model")ModelMap model) {
-        List<User> users = usersDao.findAll();
+        List<User> users = usersRepository.findAll();
         model.addAttribute("usersList", users);
         return "index";
     }
@@ -31,7 +35,7 @@ public class SimpleController {
     @PostMapping(value = "/addUser")
     public String addUser(@ModelAttribute("model")ModelMap model,
                           @ModelAttribute("user") User user) {
-        usersDao.save(user);
+        usersRepository.save(user);
         return "redirect:/hello";
     }
 }

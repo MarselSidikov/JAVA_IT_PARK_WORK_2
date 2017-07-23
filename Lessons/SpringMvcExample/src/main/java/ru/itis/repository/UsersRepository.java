@@ -6,5 +6,5 @@ import ru.itis.models.User;
 
 import java.util.List;
 
-public interface UsersDao extends JpaRepository<User, Integer> {
+public interface UsersRepository extends JpaRepository<User, Integer> {
 }

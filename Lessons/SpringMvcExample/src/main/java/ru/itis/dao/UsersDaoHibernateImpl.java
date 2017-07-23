@@ -9,7 +9,7 @@ import ru.itis.models.User;
 
 import java.util.List;
 
-@Component("usersDaoHibernate")
+//@Component("usersDaoHibernate")
 public class UsersDaoHibernateImpl implements UsersDao {
 
     @Autowired
@@ -28,7 +28,7 @@ public class UsersDaoHibernateImpl implements UsersDao {
     @Override
     public List<User> findByAge(int age) {
         Session session = sessionFactory.openSession();
-        List<User> users = session.create Query("from User user where user.age = ?")
+        List<User> users = session.createQuery("from User user where user.age = ?")
                 .setParameter(1, age).list();
         session.close();
         return users;

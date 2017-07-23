@@ -9,7 +9,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Component("usersDaoEntityManager")
+//@Component("usersDaoEntityManager")
 public class UsersDaoEntityManagerImpl implements UsersDao{
 
     @PersistenceContext(name = "entityManager")

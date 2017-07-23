@@ -17,9 +17,9 @@ import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Configuration
-@ComponentScan(value = "ru.itis")
-@EnableTransactionManagement
+//@Configuration
+//@ComponentScan(value = "ru.itis")
+//@EnableTransactionManagement
 public class PersistenceConfig {
 
     @Autowired
