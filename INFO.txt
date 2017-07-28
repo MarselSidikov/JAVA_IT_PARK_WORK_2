@@ -1972,6 +1972,37 @@ https://ru.wikipedia.org/wiki/JSON
 DTO-слой, это слой объектов
 DataTransferObject - объект передачи данных. От обычных моделей отличается тем, что содержит только те данные, которые действительно необходимо передавать.
 
+-------------------
+1) Установить npm с нодой:
+https://nodejs.org/en/
+Скачивать LTS версию и запустить установку.
+2) Проверить:
+npm -version в Git Bush
+3) Спуллить мои изменения:
+git pull
+4) Запустить IntellijIDEA, File -> Close Project
+5) Import Project, выбираем папку со StaticServer -> Много раз OK
+6) В IntellijIDEA выбираем File -> Settings -> Plugins -> NodeJs -> Search in repository -> NodeJs, где Vendor - JetBrains, нажимаем OK, идея перезагружается.
+7) Открываем папку со StaticServer в git bush.
+8) npm install express. 
+9) Убеждаемся, что в папке с проектом есть node_modules.
+10) Run -> Edit Configuration -> + -> NodeJs:
+Working Directory - текущую рабочу папку с проектом
+JavaScript File -> server.js
+11) Запускаем через зеленую стрелку проект, и отдельно сервер.
+12) Проверяем работоспособность.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

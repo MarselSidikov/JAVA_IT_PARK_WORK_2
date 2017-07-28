@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>Домашняя страница</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <script language="javascript" type="text/javascript"
+            src="http://code.jquery.com/jquery-2.1.1.min.js">
+    </script>
+    <script language="javascript" type="text/javascript"
+            src="js/users.js">
+    </script>
+</head>
+<body onload="getUsers()">
+<div class="table">
+    <h1>Пользователи</h1>
+    <table id="user_table" align="center">
+        <th>ID</th>
+        <th>Имя</th>
+        <th>Возраст</th>
+        <th>Рост</th>
+    </table>
+    <form name="user" action="/addUser" method="post">
+        <input type="text" name="name" placeholder="Имя">
+        <input type="text" name="age" placeholder="Возраст">
+        <input type="text" name="height" placeholder="Рост">
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+
+</body>
