@@ -1980,11 +1980,9 @@ https://nodejs.org/en/
 npm -version в Git Bush
 3) Спуллить мои изменения:
 git pull
-4) Запустить IntellijIDEA, File -> Close Project
-5) Import Project, выбираем папку со StaticServer -> Много раз OK
-6) В IntellijIDEA выбираем File -> Settings -> Plugins -> NodeJs -> Search in repository -> NodeJs, где Vendor - JetBrains, нажимаем OK, идея перезагружается.
+   
 7) Открываем папку со StaticServer в git bush.
-8) npm install express. 
+8) npm install express 
 9) Убеждаемся, что в папке с проектом есть node_modules.
 10) Run -> Edit Configuration -> + -> NodeJs:
 Working Directory - текущую рабочу папку с проектом
@@ -1992,6 +1990,11 @@ JavaScript File -> server.js
 11) Запускаем через зеленую стрелку проект, и отдельно сервер.
 12) Проверяем работоспособность.
 
+ДОМА:
+1) Для тех, у кого нет репозитория: скачать свою zip-папку с почты. Дома запустить сервер java и сервер со статикой (см. инструкцию выше) + создать бд
+2) Проверить работоспособность
+3) Привести форму в порядок, добавить нужные поля на форме,
+добавить нужные поля в модель бд и т.д.
 
 
 
