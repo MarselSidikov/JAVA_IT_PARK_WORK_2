@@ -1,6 +1,7 @@
 package ru.itpark.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "db_user")
@@ -14,6 +15,9 @@ public class User {
     private String login;
     private String hashPassword;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private List<Token> tokens;
+
     public User() {
     }
 
@@ -21,6 +25,14 @@ public class User {
         this.name = name;
         this.login = login;
         this.hashPassword = hashPassword;
+    }
+
+    public List<Token> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(List<Token> tokens) {
+        this.tokens = tokens;
     }
 
     public int getId() {

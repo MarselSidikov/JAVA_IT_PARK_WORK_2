@@ -1996,9 +1996,10 @@ JavaScript File -> server.js
 3) Привести форму в порядок, добавить нужные поля на форме,
 добавить нужные поля в модель бд и т.д.
 
+REST-запросы
 
-
-
+POST /users/{user-id}/messages
+GET /users/{user-id}/notes
 
 
 

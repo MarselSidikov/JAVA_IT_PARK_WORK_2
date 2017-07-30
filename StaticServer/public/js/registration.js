@@ -13,10 +13,7 @@ function sendUserData(name, login, password) {
             dataType: "json",
             data: JSON.stringify(json),
             success: function (data) {
-                alert("Успешно");
-            },
-            failure: function (data) {
-                alert("Не успешно " + data);
+                window.location = '/login.html';
             }
         }
     )

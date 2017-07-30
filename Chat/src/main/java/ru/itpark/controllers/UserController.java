@@ -1,13 +1,11 @@
 package ru.itpark.controllers;
 
+import org.springframework.web.bind.annotation.*;
 import ru.itpark.dto.UserDto;
 import ru.itpark.dto.UserRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import ru.itpark.services.RegistrationService;
+import ru.itpark.services.UsersService;
 
 // Контроллер - объекты классов-контроллеров
 // принимают http-запросы и соответствующе обрабатывают их
@@ -17,7 +15,7 @@ import ru.itpark.services.RegistrationService;
 // JSON-объекты и возвращал JSON-объекты
 // мы ставим аннотацию @RestController
 @RestController
-public class RegistrationController {
+public class UserController {
 
     // классы сервисов обычно содержат логику приложений
     // таким образом, классы-контроллеры - это
@@ -26,11 +24,11 @@ public class RegistrationController {
     // задачи на сервис
 
     // для этого мы предусмотрели в контроллере
-    // поле типа RegistrationService
+    // поле типа UsersService
     // Spring получив на вход аннотацию @Autowired
     // сам определит, какой сервис подходит в это поле
     @Autowired
-    private RegistrationService service;
+    private UsersService service;
 
     // данная аннотация указывает, что этот
     // метод будет обрабатывать запрос
@@ -45,5 +43,22 @@ public class RegistrationController {
         UserDto resultUser = service.registration(user);
         return ResponseEntity
                 .ok(resultUser);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Object> login(
+            @RequestHeader("login") String login,
+            @RequestHeader("password") String password) {
+        String token = service.login(login, password);
+        return ResponseEntity
+                .ok()
+                .header("Auth-Token", token)
+                .build();
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<Object> getUsers(@CookieValue("Auth-Token") String token) {
+        System.out.println(token);
+        return null;
     }
 }
