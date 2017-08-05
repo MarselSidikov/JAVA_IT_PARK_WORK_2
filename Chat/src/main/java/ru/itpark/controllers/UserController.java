@@ -1,11 +1,15 @@
 package ru.itpark.controllers;
 
 import org.springframework.web.bind.annotation.*;
+import ru.itpark.dto.PhoneRecordDto;
 import ru.itpark.dto.UserDto;
 import ru.itpark.dto.UserRegistrationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import ru.itpark.models.PhoneBookRecord;
 import ru.itpark.services.UsersService;
+
+import java.util.List;
 
 // Контроллер - объекты классов-контроллеров
 // принимают http-запросы и соответствующе обрабатывают их
@@ -56,9 +60,10 @@ public class UserController {
                 .build();
     }
 
-    @GetMapping("/users")
-    public ResponseEntity<Object> getUsers(@CookieValue("Auth-Token") String token) {
-        System.out.println(token);
-        return null;
+    @GetMapping("/records")
+    public ResponseEntity<Object> getUsers(@RequestHeader("Auth-Token") String token) {
+        List<PhoneRecordDto> records = service.getRecords(token);
+        return ResponseEntity
+                .ok(records);
     }
 }

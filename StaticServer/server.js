@@ -11,5 +11,5 @@ let app = express();
 // говорим, что мы раздаем статику из папки public
 app.use(express.static('public'));
 // запускаем сервер на порту 8081
-app.listen(8081);
+app.listen(8085);
 console.log("StaticServer started...");

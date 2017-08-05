@@ -2,6 +2,7 @@ package ru.itpark.models;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "db_user")
@@ -16,7 +17,10 @@ public class User {
     private String hashPassword;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private List<Token> tokens;
+    private Set<Token> tokens;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    private Set<PhoneBookRecord> records;
 
     public User() {
     }
@@ -25,14 +29,6 @@ public class User {
         this.name = name;
         this.login = login;
         this.hashPassword = hashPassword;
-    }
-
-    public List<Token> getTokens() {
-        return tokens;
-    }
-
-    public void setTokens(List<Token> tokens) {
-        this.tokens = tokens;
     }
 
     public int getId() {
@@ -65,5 +61,21 @@ public class User {
 
     public void setHashPassword(String hashPassword) {
         this.hashPassword = hashPassword;
+    }
+
+    public Set<Token> getTokens() {
+        return tokens;
+    }
+
+    public void setTokens(Set<Token> tokens) {
+        this.tokens = tokens;
+    }
+
+    public Set<PhoneBookRecord> getRecords() {
+        return records;
+    }
+
+    public void setRecords(Set<PhoneBookRecord> records) {
+        this.records = records;
     }
 }

@@ -6,6 +6,7 @@ function login(login, password) {
                 'login': login,
                 'password': password
             },
+            async:false,
             success: function (data, textStatus, request) {
                 let token = request.getResponseHeader('Auth-Token');
                 document.cookie = "Auth-Token=" + token;

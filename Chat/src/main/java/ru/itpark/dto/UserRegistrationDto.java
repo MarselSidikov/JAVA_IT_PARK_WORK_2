@@ -1,6 +1,6 @@
 package ru.itpark.dto;
 
-public class UserRegistrationDto {
+public class  UserRegistrationDto {
     private String name;
     private String password;
     private String login;

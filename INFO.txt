@@ -2001,7 +2001,37 @@ REST-запросы
 POST /users/{user-id}/messages
 GET /users/{user-id}/notes
 
-
+------------------------------------------
+Наиболее известные аннотации и их принадлежность:
+@Autowired
+@Bean
+@Configuration
+@SpringBootApplication
+@Component
+@Service
+@Repository
+@Controller
+...
+- Spring Context/Beans/MVC/SpringBoot
+--------------------------
+@OneToOne
+@OneToMany
+@ManyToOne
+@ManyToMany
+@Entity
+@Table
+@JoinColumn
+@Column
+@Id
+@GeneratedValue
+...
+- JPA
+--------------------------
+@Override - JAVA
+--------------------------
+@Query
+@NamedQuery
+- Spring JPA
 
 
 
