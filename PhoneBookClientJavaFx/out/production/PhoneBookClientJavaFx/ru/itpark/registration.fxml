@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="193.0" prefWidth="316.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.itpark.RegistrationController">
+    <children>
+        <TextField fx:id="textName" layoutX="91.0" layoutY="30.0" />
+        <TextField fx:id="textLogin" layoutX="91.0" layoutY="64.0" />
+        <TextField fx:id="textPassword" layoutX="91.0" layoutY="97.0" />
+        <Button fx:id="buttonRegistration" layoutX="123.0" layoutY="136.0" mnemonicParsing="false" text="Регистрация" />
+        <Label layoutX="34.0" layoutY="34.0" text="Имя" />
+        <Label layoutX="34.0" layoutY="68.0" text="Логин" />
+        <Label layoutX="34.0" layoutY="101.0" text="Пароль" />
+    </children>
+</AnchorPane>

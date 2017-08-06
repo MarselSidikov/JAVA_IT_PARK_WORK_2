@@ -12,4 +12,6 @@ public interface UsersService {
     String login(String login, String password);
 
     List<PhoneRecordDto> getRecords(String token);
+
+    PhoneRecordDto addRecord(String token, PhoneRecordDto record);
 }

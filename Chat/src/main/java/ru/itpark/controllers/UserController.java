@@ -66,4 +66,22 @@ public class UserController {
         return ResponseEntity
                 .ok(records);
     }
+
+    @PostMapping("/records")
+    public ResponseEntity<PhoneRecordDto> addRecord(
+            @RequestBody PhoneRecordDto record,
+            @RequestHeader("Auth-Token") String token) {
+        return ResponseEntity
+                .ok(service.addRecord(token, record));
+    }
+
+
+
+
+
+
+
+
+
+
 }

@@ -82,4 +82,14 @@ public class UsersServiceImpl implements UsersService {
                                 record.getPhone()))
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public PhoneRecordDto addRecord(String token, PhoneRecordDto record) {
+        User user = usersRepository.findOneByToken(token);
+        PhoneBookRecord newRecord = new
+                PhoneBookRecord(record.getName(), record.getPhone(), user);
+        phoneBookRecordsRepository.save(newRecord);
+        return record;
+
+    }
 }

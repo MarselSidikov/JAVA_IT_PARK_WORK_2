@@ -12,7 +12,18 @@
     <script src="lib/carhartl-jquery-cookie-92b7715/jquery.cookie.js"></script>
 </head>
 <body onload="getAllUsers()">
-<h1>Hello</h1>
+<h1>Записная книжка</h1>
+<div class="registration_form" align="center">
+    <input type="text" id="name" placeholder="Имя">
+    <br>
+    <input type="text" id="phone" placeholder="Номер телефона">
+    <br>
+    <button id="submit" onclick="
+    sendRecord(document.getElementById('name').value,
+          document.getElementById('phone').value)">
+        Отправить
+    </button>
+
 <table id="phone_book_table">
     <th>Имя</th>
     <th>Телефон</th>

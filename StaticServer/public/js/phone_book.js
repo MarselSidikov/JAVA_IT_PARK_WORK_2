@@ -37,3 +37,38 @@ function getAllUsers() {
         }
     )
 }
+
+function sendRecord(name, phone) {
+    // создали json-объект
+    let json = {};
+    // положили туда данные
+    json["name"] = name;
+    json["phone"] = phone;
+    $.ajax({
+            url: "http://localhost:8080/records",
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(json),
+            headers: {
+                'Auth-Token': $.cookie('Auth-Token')
+            },
+            statusCode: {
+                200: function (xhr) {
+                    // преобразовали его в json-объект
+                    let data = xhr;
+                    // получили таблицу из html-страницы
+                    let table = document.getElementById('phone_book_table');
+                    // бежим по всем элементам массива
+                    let rowsCount = table.getElementsByTagName('tr').length;
+                    let row = table.insertRow(rowsCount);
+                    const cellName = row.insertCell(0);
+                    const cellPhone = row.insertCell(1);
+                    // задаем текст для каждой ячейки
+                    cellPhone.innerHTML = data["phone"];
+                    cellName.innerHTML = data["name"];
+                }
+            }
+        }
+    )
+}

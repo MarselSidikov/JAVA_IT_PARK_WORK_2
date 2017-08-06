@@ -2033,7 +2033,12 @@ GET /users/{user-id}/notes
 @NamedQuery
 - Spring JPA
 
-
+В проекте создать папку lib
+В нее вставить jar-файл из папки с другим проектом.
+File -> Project Structure -> Libraries -> + -> Java -> Выбираете jar из папки lib проекта
+spring-web
+File -> Project Structure -> Libraries -> + -> Maven -> spring-web -> org.springframework:spring-web:4.3.9.RELEASEspring-web -> OK -> OK ...
+jackson-databind File -> Project Structure -> Libraries -> + -> Maven -> jackson-databind -> com.fasterxml.jackson.core:jackson-databind:2.9.0.pr4 -> OK -> OK ...
 
 
 
